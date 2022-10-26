@@ -1,31 +1,16 @@
-// These are the modules that contain Photoshop APIs, provided by app itself.
-// Photoshop DOM
 const app = require("photoshop").app;
-// action.addNotificationListener
 const action = require("photoshop").action;
-// core.executeAsModal
 const core = require("photoshop").core;
 
-function getColorpickerColor() {
-    return core.getColorpickerColor();
-    // if (app.showColorPicker())
-    // {
-    //     return app.foregroundColor
-    // }
-    // else
-    // {
-    //     return false
-    // }
-}; // end of getColor()
 
-function showLayerNames() {
+function createCurvesAdjustment() {
 
-    app.showAlert("From " + app.foregroundColor.blue + " to " + app.backgroundColor.blue);
+    // app.showAlert("From " + app.foregroundColor.blue + " to " + app.backgroundColor.blue);
     // const doc = app.activeDocument;
     // const myEmptyLayer = doc.createLayer();
     // const myLayer = doc.createLayer({ name: "myLayer", opacity: 80, mode: "colorDodge" });
 
-    core.executeAsModal(createCurveAdjustment, { "commandName": "createCurveAdjustment", "descriptor": { "from": app.foregroundColor, "to": app.backgroundColor } });
+    core.executeAsModal(createCurvesAdjustmentAsync, { "commandName": "createCurveAdjustment", "descriptor": { "from": app.foregroundColor, "to": app.backgroundColor } });
 
     // app.showAlert("Hello world");n
     // const app = require("photoshop").app;
@@ -43,13 +28,13 @@ function showLayerNames() {
 
 }
 
-async function createCurveAdjustment(executionContext) {
+async function createCurvesAdjustmentAsync(executionContext) {
     let result;
     let psAction = require("photoshop").action;
     let from = executionContext.descriptor.from;
     let to = executionContext.descriptor.to;
-    app.showAlert("IN")
-    app.showAlert("From " + executionContext.descriptor.from.blue + " to " + executionContext.descriptor.to.blue);
+    // app.showAlert("IN")
+    // app.showAlert("From " + executionContext.descriptor.from.blue + " to " + executionContext.descriptor.to.blue);
 
     // let command = [
     //     // Make adjustment layer
@@ -171,4 +156,4 @@ async function createCurveAdjustment(executionContext) {
 // await runModalFunction();
 
 
-document.getElementById("btnPopulate").addEventListener("click", showLayerNames);
+document.getElementById("btnCreateCurvesAdjustment").addEventListener("click", createCurvesAdjustment);

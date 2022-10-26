@@ -1,31 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <script src="index.js"></script>    
-</head>
-<style>
-  body {
-    color: white;
-    padding: 0 16px;
-  }
-  li:before {
-    content: '• ';
-    width: 3em;
-  }
 
-  #layers {
-    border: 1px solid #808080;
-    border-radius: 4px;
-    padding: 16px;
-  }
-</style>
+<head>
+  <script src="index.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
 <body>
-  <sp-heading>Layers</sp-heading>
-  <sp-body id="layers">
-    No layers
-  </sp-body>
-  <footer>
-    <sp-button id="btnPopulate">Populate Layers</sp-button>
-  </footer>
+  <sp-heading>Instructions</sp-heading>
+  <sp-detail>This extension will create a curves adjustment layer that will map from the current background color to the
+    current foreground colour.</sp-detail>
+  <!-- <sp-detail>Sometimes the colours don't seem to be recognized so they need to be reseleced first.</sp-detail>
+  <sp-detail>i (eye-dropper), select sample size, click the area you want to change, x (swap fg/bg), click the colour
+    you want to change it to, click "Create Curves"</sp-detail>
+  <sp-detail>You can then mask in the area you want the change.</sp-detail> -->
+  <sp-button id="btnCreateCurvesAdjustment">Create Curves Adjustment</sp-button>
 </body>
+
 </html>
